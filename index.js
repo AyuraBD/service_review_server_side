@@ -68,6 +68,14 @@ async function run(){
       res.send(result);
     })
 
+    //update Reviews
+    app.patch('/reviews/:id', async(req, res) =>{
+      const id = req.params.id;
+      const query = {_id: ObjectId(id)};
+      const result = await orderCollection.updateOne(query);
+      res.send(result);
+  })
+
     
   }
   finally{
